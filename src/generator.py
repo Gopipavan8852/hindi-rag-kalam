@@ -34,7 +34,14 @@ def ask_ollama(messages: list[dict], model: str = LLM_MODEL) -> str:
     try:
         with urllib.request.urlopen(request, timeout=OLLAMA_TIMEOUT_SECONDS) as response:
             return json.loads(response.read().decode("utf-8"))["message"]["content"].strip()
+    except urllib.error.HTTPError as error:
+        # The server answered, but with an error. Show Ollama's own explanation.
+        detail = error.read().decode("utf-8", errors="replace")
+        raise RuntimeError(
+            f"Ollama answered with HTTP {error.code} for model '{model}': {detail}"
+        ) from error
     except urllib.error.URLError as error:
         raise RuntimeError(
-            f"Cannot reach Ollama ({error}). Start the Ollama app and run `ollama pull {model}`."
+            f"Cannot reach Ollama ({error.reason}). Start the Ollama app and run "
+            f"`ollama pull {model}`."
         ) from error
