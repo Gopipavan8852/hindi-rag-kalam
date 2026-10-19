@@ -2,9 +2,6 @@
 import re
 import unicodedata
 
-# Dependent vowel signs, anusvara/visarga, nukta and virama (U+0900-U+0903, U+093A-U+094F).
-# A correct Hindi word never repeats one of these back to back, but some PDF
-# extractors emit them twice (e.g. "सम्माान" for "सम्मान").
 _DOUBLED_SIGN = re.compile(r"([\u0900-\u0903\u093A-\u094F])\1+")
 _JUNK_CHARS = re.compile(r"[\x00\u00ad\u200b\ufeff]")  # NUL, soft hyphen, zero-width space, BOM
 _HEADING = re.compile(r"^\s*(\d{1,2})\s*[·.]\s*(.+?)\s*$")

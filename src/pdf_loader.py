@@ -1,10 +1,3 @@
-"""Extract text per page (with page number and section) from the Hindi PDF.
-
-Why poppler's `pdftotext` and not a Python library?
-This PDF was printed from Chrome with Type 3 fonts. I compared extractors on it:
-pypdf/pdfplumber drop characters, PyMuPDF doubles vowel signs and drops repeated
-letters, pypdfium2 inserts stray spaces. Only pdftotext gave readable Hindi.
-"""
 import os
 import re
 import shutil
@@ -15,15 +8,15 @@ from pathlib import Path
 from src.text_cleaner import clean_text, parse_heading
 
 TABLE_SEPARATOR = " | "
-_WIDE_GAP = re.compile(r" {3,}")  # 3+ spaces inside a line = table column gap in -layout mode
+_WIDE_GAP = re.compile(r" {3,}")  
 
 
 @dataclass
 class PageText:
-    page: int                 # physical PDF page, 1-based
-    section_no: int | None    # printed section number (= page - 2 in this PDF)
+    page: int                 
+    section_no: int | None    
     section_title: str
-    lines: list[str]          # cleaned body lines; table rows are joined with " | "
+    lines: list[str]          
 
 
 def _find_pdftotext() -> str:

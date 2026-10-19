@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from typing import Callable
 
 from src.config import MIN_SCORE, TOP_K
-from src.generator import NOT_FOUND_TEXT, ask_ollama, build_messages
+from src.generator import ask_ollama, build_messages, is_not_found, not_found_text
 from src.retriever import Retriever
 from src.vector_store import Hit
 
@@ -23,7 +23,8 @@ def format_citation(hit: Hit) -> str:
 
 
 def format_answer(answer: Answer) -> str:
-    lines = [f"Query : {answer.question}", f"Answer: {answer.text}", "Sources:"]
+    heading = "Sources:" if answer.answered else "Closest passages (not used: no answer found):"
+    lines = [f"Query : {answer.question}", f"Answer: {answer.text}", heading]
     lines += [f"  [{i}] {format_citation(h)}" for i, h in enumerate(answer.hits, start=1)]
     return "\n".join(lines)
 
@@ -37,6 +38,6 @@ class RagPipeline:
     def ask(self, question: str, k: int = TOP_K) -> Answer:
         hits = self.retriever.search(question, k)
         if not hits or hits[0].score < MIN_SCORE:
-            return Answer(question, NOT_FOUND_TEXT, hits, answered=False)
+            return Answer(question, not_found_text(question), hits, answered=False)
         text = self.generate(build_messages(question, hits))
-        return Answer(question, text, hits, answered=NOT_FOUND_TEXT not in text)
+        return Answer(question, text, hits, answered=not is_not_found(text))

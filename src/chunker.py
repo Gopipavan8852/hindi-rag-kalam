@@ -1,15 +1,3 @@
-"""Split cleaned pages into chunks that carry citation metadata.
-
-Strategy (justified in the README):
-* Prose is split into sentences on the Hindi danda '।' and on '?' / '!'.
-  We do NOT split on '.', because the text contains 'ए.पी.जे.' and 'डॉ.'.
-* Sentences are packed into chunks of at most CHUNK_MAX_CHARS characters, with
-  CHUNK_OVERLAP_SENTENCES sentence(s) repeated so a fact on a boundary is not lost.
-  A chunk never cuts a sentence in half.
-* Every table row becomes its own chunk, written as 'column: value; column: value'.
-* The section title is added to the text that is embedded, so a short chunk
-  (e.g. '1997: भारत रत्न') still carries its topic.
-"""
 import re
 from dataclasses import dataclass
 

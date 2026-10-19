@@ -4,7 +4,7 @@ top-k = 4
 **Retrieval hit-rate: 6/6**
 
 ## 1. SLV-III ने किस उपग्रह को कक्षा में स्थापित किया और किस वर्ष?  (Hindi)
-**Answer:** (retrieval only)
+**Answer:** SLV-III ने रोहिणी उपग्रह को कक्षा में स्थापित किया और वर्ष 1980 में।
 
 **Retrieval hit:** yes, rank 1
 
@@ -15,7 +15,7 @@ top-k = 4
 4. page: 20 · section: "संस्थाओं एवं शब्दों की शब्दावली" · chunk_id: 83 · score: 0.86
 
 ## 2. कलाम को भारत रत्न किस वर्ष प्राप्त हुआ?  (Hindi)
-**Answer:** (retrieval only)
+**Answer:** 1997 में।
 
 **Retrieval hit:** yes, rank 1
 
@@ -26,7 +26,7 @@ top-k = 4
 4. page: 4 · section: "रामेश्वरम में बचपन" · chunk_id: 5 · score: 0.84
 
 ## 3. पोखरण-II में कलाम की क्या भूमिका थी?  (Hindi)
-**Answer:** (retrieval only)
+**Answer:** पोखरण-II में कलाम ने भारत के परमाणु परीक्षण के लिए वैज्ञानिक सलाहकार और डीआरडीओ के प्रमुख के रूप में एक कें द्रीय संगठनात्मक भूमिका निभाई।
 
 **Retrieval hit:** yes, rank 1
 
@@ -37,7 +37,7 @@ top-k = 4
 4. page: 21 · section: "विचार एवं बोध-प्रश्न" · chunk_id: 91 · score: 0.84
 
 ## 4. Which institution did Kalam attend to study aeronautical engineering?  (English)
-**Answer:** (retrieval only)
+**Answer:** Kalam attended Madras Institute of Technology (MIT) to study aeronautical engineering.
 
 **Retrieval hit:** yes, rank 1
 
@@ -48,7 +48,7 @@ top-k = 4
 4. page: 21 · section: "विचार एवं बोध-प्रश्न" · chunk_id: 90 · score: 0.79
 
 ## 5. Who co-wrote the autobiography, and in what year was it published?  (English)
-**Answer:** (retrieval only)
+**Answer:** The autobiography was co-written with Arun Tiwari and was published in the year 1999.
 
 **Retrieval hit:** yes, rank 1
 
@@ -59,7 +59,7 @@ top-k = 4
 4. page: 17 · section: "जीवन-रेखा (टाइमलाइन)" · chunk_id: 65 · score: 0.77
 
 ## 6. How and where did Kalam die in 2015?  (English)
-**Answer:** (retrieval only)
+**Answer:** Kalam died on 27 July 2015 in Shillong, Meghalaya, during a lecture to students at the Indian Institute of Management, Shillong.
 
 **Retrieval hit:** yes, rank 1
 
@@ -68,3 +68,8 @@ top-k = 4
 2. page: 22 · section: "त्वरित तथ्य-सारांश" · chunk_id: 95 · score: 0.80
 3. page: 15 · section: "अंतिम क्षण तक शिक्षक (2007–2015)" · chunk_id: 54 · score: 0.79
 4. page: 21 · section: "विचार एवं बोध-प्रश्न" · chunk_id: 91 · score: 0.78
+
+## Extra: question not in the document
+**Query:** What is the capital of France?
+**Answer:** The answer was not found in the document.
+**Answered flag:** False

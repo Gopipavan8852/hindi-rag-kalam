@@ -11,12 +11,11 @@ class Embedder:
 
     def _load(self):
         if self._model is None:
-            from sentence_transformers import SentenceTransformer  # slow import, so lazy
+            from sentence_transformers import SentenceTransformer  
             self._model = SentenceTransformer(self.model_name)
         return self._model
 
     def _encode(self, texts: list[str]) -> list[list[float]]:
-        # normalize_embeddings=True -> unit-length vectors, so cosine similarity works.
         vectors = self._load().encode(texts, normalize_embeddings=True, show_progress_bar=False)
         return vectors.tolist()
 

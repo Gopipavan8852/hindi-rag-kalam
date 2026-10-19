@@ -1,11 +1,3 @@
-"""Run the 6 required queries and write evaluation/results.md.
-
-python -m scripts.evaluate                    # full run (needs Ollama)
-python -m scripts.evaluate --retrieval-only   # only check retrieval (no LLM needed)
-
-A retrieval 'hit' means at least one top-k chunk comes from a page that really contains the
-answer. Those pages were found by reading the PDF; re-check them if you change the PDF.
-"""
 import sys
 from pathlib import Path
 
