@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Hindi Document Question Answering Using RAG
 
 Answers questions (Hindi or English) about A.P.J. Abdul Kalam from a supplied Hindi PDF.
@@ -90,3 +91,6 @@ chunk_id next to each vector, so citations are produced from metadata, not writt
 
 Models and licenses (verify on the model pages): multilingual-e5-small is MIT;
 Qwen3-4B is Apache 2.0.
+=======
+# hindi-rag-kalam
+>>>>>>> 9dae60e76a15339b8c8dd33387cddd535f0454ea
